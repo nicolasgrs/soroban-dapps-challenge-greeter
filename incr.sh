@@ -1,10 +1,10 @@
-EXAMPLE_USER_SECRET="$(soroban config identity show example-user)"
+EXAMPLE_USER_SECRET="$(soroban keys show example-user)"
 NETWORK="$(cat ./.soroban-example-dapp/network)"
 CONTRACT_ID="$(cat ./.soroban/hello_world_id)"
 
 soroban contract invoke \
     --network $NETWORK \
-    --source $EXAMPLE_USER_SECRET \
+    --source-account $EXAMPLE_USER_SECRET \
     --id $CONTRACT_ID \
     -- \
     increment \
